@@ -1,0 +1,102 @@
+body {
+
+    background-color: white;
+}
+
+
+body::after {
+    content: "";
+    position: absolute;
+    background: #f0f0f0f5;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 16rem;
+    z-index: -1;
+
+}
+
+#page-search-results{
+
+    width: 90%; /*largura*/
+    max-width: 1100px; /*largura maxima*/
+    margin: 0 auto; /*preenche espaçamento lateral. Alinhamento da caixa pelo lado de fora*/
+}
+
+#page-search-results header {
+    margin-top: 48px; /*altura topo com header*/
+    display: flex;
+    justify-content: space-between; /*espaçamento entre ecoleta e voltar para home*/
+    align-items: center; /*palavra votar para home, alinhado com ecoleta*/
+}
+
+#page-search-results header a {
+    color: var(--title-color); /*variavel ja existe no main.css linkado ao index do create-point*/
+    font-weight: bold;
+    display: flex;
+    align-items: center; /*ficar alinhado com a seta do span*/
+}
+
+/*dentro do a tem o span*/
+#page-search-results header a span {
+   margin-right: 16px; /*espaco a direita da seta com voltar para home*/
+   background-image: url('../assets/arrow-left.svg');/*setinha voltar ao home*/
+   display: flex; /*para mostrar a imagem*/
+   width: 20px;
+   height:24px;
+}
+
+
+main {
+    margin: 48px;
+}
+
+main h4{
+    font-weight: normal;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 32px;
+}
+
+main .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 24px;
+
+}
+
+main .card img {
+    width: 100%;
+    height: 150px; /*se encaixa na tela para nao ficar quebrado*/
+    
+    object-fit: cover;
+    border-radius:  8px 8px 0 0;
+
+}
+
+main .cards h1 {
+    margin-top: 32px;
+    font-size:36px;
+    line-height: 41px;
+    color: #322153;
+}
+
+
+main .cards h3 {
+    margin: 24px 0;
+    /*font-family: Roboto;*/
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 34px;
+    color: var(--primary-color);
+
+}
+
+main .card p {
+  
+    font-size: 24px;
+    line-height: 34px;
+    color: #6C6C80;
+
+}

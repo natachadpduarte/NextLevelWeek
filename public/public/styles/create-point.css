@@ -1,0 +1,174 @@
+#page-create-point{
+
+    width: 90%; /*largura*/
+    max-width: 1100px; /*largura maxima*/
+    margin: 0 auto; /*preenche espaçamento lateral. Alinhamento da caixa pelo lado de fora*/
+}
+
+#page-create-point header {
+    margin-top: 48px; /*altura topo com header*/
+    display: flex;
+    justify-content: space-between; /*espaçamento entre ecoleta e voltar para home*/
+    align-items: center; /*palavra votar para home, alinhado com ecoleta*/
+}
+
+#page-create-point header a {
+    color: var(--title-color); /*variavel ja existe no main.css linkado ao index do create-point*/
+    font-weight: bold;
+    display: flex;
+    align-items: center; /*ficar alinhado com a seta do span*/
+}
+
+/*dentro do a tem o span*/
+#page-create-point header a span {
+   margin-right: 16px; /*espaco a direita da seta com voltar para home*/
+   background-image: url('../assets/arrow-left.svg');/*setinha voltar ao home*/
+   display: flex; /*para mostrar a imagem*/
+   width: 20px;
+   height:24px;
+}
+
+form {
+
+    background-color: white; /*cor da caixa do form*/
+    margin: 80px auto; /*ajusta espaço de todos os lados*/
+    /*margin-top: 80px; espaco entre logo ecoleta e o form*/
+    padding: 64px;/*preenchimento interno da caixa do form. Quando adicionamos o padding, junto com o max width ele tende a aumentar o tamanho de toda caixa*/
+    border-radius: 8px; /*arredondando bordas*/
+    max-width: 730px; /*largura maxima dele vai até 730px*/
+    /*box-sizing: border-box;aqui está comentado, pois ja aplicamos no css main em todas as caixas.estou dizendo que a caixa não será so enconta do Cadastro de ponto, mas tambem irá pegar a borda*/
+}
+
+form h1 {
+    font-size: 33px;
+}
+
+form fieldset {
+    margin-top: 64px; /*pega todo fildset que esta dentro d*/
+    border: 0; /*Retirando borda lateral do field seet */
+}
+
+form legend {
+    margin-bottom: 40px;/*espaçp entre legenda dados entidade e campos*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+form legend h2 {
+    font-size: 24px;
+
+}
+
+form legend span {
+    color: var(--title-color);
+    font-size: 14px;
+}
+
+form .field {
+    flex: 1;/*campos se esticam*/
+    display: flex;/*coloca um ao lado do outro, porem com o flex-direction coloca um embaxido o outro*/
+    flex-direction: column; /*estica imputs do field, segue ideia de colunas*/
+    margin-bottom: 24px; /*espaço entre os campos*/
+}
+
+form .field-group {
+    display: flex; /*tudo o que ta dentro do fieldgroup ficara um ao lado do outro*/
+
+}
+/*aplica tanto para imput como para select*/
+form input,
+form select {
+    background-color: #f0f0f5;
+    border: 0;/*tira a borda dos imputs*/
+    padding: 16px 24px;/*aumenta largura e altura dos inputs*/
+    font-size: 16px;
+    /*outline: none;*retira linha preta quando clica no campo. vem defautl, mas podemos tirar*/
+    border-radius: 8px; /*arredonda campos*/
+}
+
+form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+     appearance: none;
+} /*nao aceita algumas regras css, fazendo isso ele desconsidera nos navegadores*/
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+form .field-group .field + .field {
+    margin-left: 24px; /*coloca uma margem a esquerda do segundo field que tem dentro do fieldgorup*/
+}
+
+
+form button {
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;/*retira borda do botão*/
+    margin-top: 40px;
+    transition: background-color 400ms; /*da uma reload apenas nas cores*/
+}
+
+form button:hover {
+    background-color: #2fb86e;
+    ;
+}/*caracteristicas de quando se passa o mouse em cima do botão*/
+
+
+
+.items-grid {
+
+   /* display: flex todas as imagens ao inves de ficar na vertical ficam na horizontal, uma ao lado da outra*/
+   display: grid;/*grid é multidimensional*/
+   grid-template-columns: 1fr 1fr 1fr; /*esse é 3 colunas em pixel 200px 200px 200px, porem podemos fazer em fraçoes fr, assim ela faz um calculo e adequa significa que tenho 3 colunas de 200 px*/
+   gap: 16px;/*geralmente utilizamos margin top, porem o grid tem essa propriedade diferente gap, com margem seria mais complexo*/
+}
+
+.items-grid li {
+    background-color: #f5f5f5;
+    list-style: none; /*retirar bulhetes. pontinhos da lista (li)*/
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;
+    padding: 32px 24px 16px;
+    display: flex;/*alinha um ao lado do outro, letras e imagem*/
+    flex-direction: column; /*flex é igual a coluna*/
+    align-items: center; /*alinhas itens ao centro*/
+    justify-content: space-between; /*apos ajustes acima, o fluxo ficou na vertical fazendo assim o espaço*/
+    text-align: center; /*textos alinhados ao centro*/
+    cursor: pointer; /*aparece a maozinha quando colocar o cursosr em cima da imagem*/
+
+}/*para cada li dentro do items-grid formato desse jeito*/
+
+
+.items-grid li span {
+
+        margin-top: 12px;
+        flex:1; /*imagem foi computou um tamamnho e preenche tudo*/
+        display: flex;
+        align-items: center;
+
+        color: var(--title-color);
+}
+
+.items-grid li.selected {
+   background: #e1faec;
+   border: 2px solid #34cb79;/*quando tiver selecionado, sera aplicado essa conf*/
+
+}/*procura a li que tenha a classe selected. tem que estar junto li.selected*/
+
+/*arrumando, para no console quando clicar aparecer o id e nao img ou o nome da imagem.*/
+.items-grid li img,
+.items-grid li span {
+pointer-events: none; 
+
+}

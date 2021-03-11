@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+{% set pageId = "page-create-point" %}
+
+{% block title %}
+    <title>Criar ponto de coleta</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+
+    <form action="/savepoint" method="POST"><!--Esse está no server.js-->
+        <h1>Cadastro do ponto de coleta</h1>
+
+        <fieldset>
+            <legend>
+                <h1>Dados da entidade
+                </h1>
+            </legend>
+            <!--legenda desse fieldset-->
+            <div class="field-group">
+                <div class="field">
+                <label for="name">Nome da entidade</label>
+                <input type="text" name="name" required="required">
+                <!--required, campo obrigatorio-->
+            </div>
+
+
+            <div class="field">
+                <label for="name">Imagem da entidade</label>
+                <input 
+                type="url" 
+                name="image"
+                placeholder="http://"
+                required="required">
+                <!--required, campo obrigatorio-->
+            </div>
+
+            </div>
+            
+            <div class="field-group">
+                <!--atalho criar dosi campos field, digitar .field*2-->
+                <div class="field">
+                    <label for="address"></label>Endereço</label>
+                <input type="text" name="address" required="required">
+            </div>
+
+            <div class="field">
+                <label for="address2"></label>Número/Complemento</label>
+            <input type="text" name="address2" required="required">
+        </div>
+
+    </div>
+
+    <div class="field-group">
+        <!--atalho criar dosi campos field, digitar .field*2-->
+        <div class="field">
+            <label for="state">Estado</label>
+            <select name="uf" required="required">
+                <option value="">Selecione o Estado</option>
+                <!--Incluindo cidades denteo da caixa de seleção-->
+            </select>
+
+            <input type="hidden" name="state">
+            <!--toda vez q atualizar o uf, atualiza o hidden que está escondido.hidden quer dizer que esse input fica escondido, nao aparece na tela, mas aparece na url. esse campo escondido receberá o nome do estado-->
+        </div>
+
+        <div class="field">
+            <label for="city">Cidade</label>
+            <select name="city" disabled="disabled" required="required">
+                <!--disabled quer dizer que o campo nao fica disponivel-->
+                <option value="">Selecione a Cidade</option>
+                <!--Incluindo cidades denteo da caixa de seleção-->
+            </select>
+
+        </div>
+
+    </div>
+</fieldset>
+
+<!--fieldset com as imagens itens de coleta-->
+<fieldset>
+    <legend>
+        <h2>Itens de coleta</h2>
+        <span>Selecione um ou mais itens abaixo</span>   
+    </legend>
+
+    <div class="items-grid">
+
+        <li data-id="Lâmpadas"><img src="/assets/lampadas.svg" alt="Lâmpadas">
+            <span>Lâmpadas</span>
+            <!--titulo que aparece na imagem-->
+        </li>
+
+        <li data-id="Pilhas e Baterias"><img src="/assets/baterias.svg" alt="Pilhas e Baterias">
+            <span>Pilhas e Baterias</span>
+        </li>
+
+        <li data-id="Papéis e Papelão"><img src="/assets/papeis-papelao.svg" alt="Papéis e Papelão">
+            <span>Papéis e Papelão</span>
+        </li>
+
+        <li data-id="Resíduos Eletrônicos"><img src="/assets/eletronicos.svg" alt="Resíduos Eletrônicos">
+            <span>Resíduos Eletrônicos</span>
+        </li>
+
+        <li data-id="Resíduos Orgânicos"><img src="/assets/organicos.svg" alt="Resíduos Orgânicos">
+            <span>Resíduos Orgânicos</span>
+        </li>
+
+        <li data-id="Óleo de Cozinha"><img src="/assets/oleo.svg" alt="Óleo de Cozinha">
+            <span>Óleo de Cozinha</span>
+        </li>
+
+    </div>
+
+    <input type="hidden" name="items">
+    <!--pegar ids das imagens e passar como parametro para o form-->
+</fieldset>
+
+<button type="submit">Cadastrar ponto de coleta</button>
+<!--envia o form. ele ira passar os parametros com o id do estado e da cidade, porem temos duas formas de tratar isso, a primeira é tratando no front end ouarmazenar em um bd e fazer um depara-->
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+{% block modal %}
+
+{% if saved %}
+  {% include "partials/point-created.html" %}<!--Vai incluir conteudo desse js nessa pagina-->
+{% endif %}
+
+{% endblock modal %}
+
+{% block scripts %}
+<script src="/scripts/create-point.js"></script>
+{% endblock scripts %}
+
+</body>
+</html>

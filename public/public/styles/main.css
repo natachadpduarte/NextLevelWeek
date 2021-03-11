@@ -1,0 +1,40 @@
+:root {
+  --title-color:#322153;
+  --primary-color: #34cb79;
+}/*ROOT, RAIZ DO HTML. atalho para aplicar a variavel em varios elementos*/
+  
+*  {margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }/*coringa para todos os seletores. da forma que está retira margem de todos os elementos*/  
+      
+  html{
+          font-family: Roboto, sans-serif;
+      }
+
+
+  body{
+          background-color: #f0f0f5;
+          -webkit-font-smoothing: antialiased;
+    }
+
+            
+  
+      a {
+          text-decoration: none; /* Tudo que é "a" Retirar sublinhado*/
+  
+      }
+  
+  h1, h2, h3, h4, h5 {
+      
+      font-family: Ubuntu, sans-serif; /*recebe fonte ubuntu*/
+      color:var(--title-color)
+  }
+  
+      /*Box Model
+  
+      Modelo de caixa. 
+      Toda caixa tem largura, altura, espaçamentos, bordas, cor, fundo, 
+      maneira que é visto pelo html(display), posicionamento, alinhamento
+      */
+  
